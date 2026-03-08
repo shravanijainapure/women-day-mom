@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Women's Day Mom ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#ffd6e7,#ff8fab);
+min-height:100vh;
+overflow-x:hidden;
+display:flex;
+justify-content:center;
+align-items:flex-start;
+padding-top:40px;
+text-align:center;
+}
+
+/* background animation layer */
+.background{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+}
+
+/* main container */
+.container{
+position:relative;
+z-index:5;
+max-width:600px;
+padding:20px;
+color:white;
+}
+
+/* heading */
+h1{
+font-family:'Dancing Script',cursive;
+font-size:42px;
+}
+
+/* dancing bear */
+.bear{
+font-size:50px;
+animation:dance 1s infinite alternate;
+}
+
+@keyframes dance{
+from{transform:translateY(0)}
+to{transform:translateY(-10px)}
+}
+
+/* rotating heart */
+.heart3d{
+font-size:60px;
+margin:15px 0;
+animation:rotateHeart 3s linear infinite;
+}
+
+@keyframes rotateHeart{
+0%{transform:rotateY(0deg)}
+100%{transform:rotateY(360deg)}
+}
+
+/* mail emoji */
+.mail{
+font-size:70px;
+cursor:pointer;
+transition:.3s;
+}
+
+.mail:hover{
+transform:scale(1.2);
+}
+
+/* message container */
+#messageBox{
+display:none;
+margin-top:20px;
+animation:fadeIn 1.5s;
+}
+
+/* letter */
+.letter{
+background:white;
+color:#444;
+padding:20px;
+border-radius:12px;
+box-shadow:0 10px 20px rgba(0,0,0,0.2);
+max-height:200px;
+overflow:hidden;
+}
+
+/* auto scroll text */
+.letter p{
+animation:scrollText 18s linear;
+}
+
+@keyframes scrollText{
+0%{transform:translateY(100%)}
+100%{transform:translateY(-100%)}
+}
+
+/* gallery */
+.gallery{
+margin-top:20px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+}
+
+/* increased image size */
+.gallery img{
+width:160px;
+height:160px;
+border-radius:14px;
+object-fit:cover;
+box-shadow:0 6px 16px rgba(0,0,0,0.3);
+transition:0.3s;
+}
+
+/* hover zoom */
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* floating hearts */
+.heart{
+position:absolute;
+bottom:-20px;
+font-size:22px;
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-100vh);opacity:0}
+}
+
+/* falling roses */
+.petal{
+position:absolute;
+top:-20px;
+font-size:18px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10px)}
+100%{transform:translateY(100vh)}
+}
+
+/* stars */
+.star{
+position:absolute;
+color:white;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:.3}
+to{opacity:1}
+}
+
+/* fade animation */
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background" id="effects"></div>
+
+<div class="container">
+
+<div class="bear">🐻</div>
+
+<h1>Happy Women's Day Mom 💖</h1>
+
+<div class="heart3d">❤️</div>
+
+<div class="mail" onclick="openLetter()">💌</div>
+
+<div id="messageBox">
+
+<div class="letter">
+<p>
+Dear Mom ❤️ <br><br>
+
+Thank you for every sacrifice, every hug, every lesson,
+and every moment of love you have given me. <br><br>
+
+You are my inspiration and my biggest blessing. <br><br>
+
+Happy Women's Day Mom 🌸 <br><br>
+
+Love you forever 💖
+</p>
+</div>
+
+<div class="gallery">
+<img src="1.jpeg">
+<img src="2.jpeg">
+<img src="3.jpeg">
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* open message */
+function openLetter(){
+document.getElementById("messageBox").style.display="block";
+}
+
+/* floating hearts */
+const effects=document.getElementById("effects");
+
+function createHeart(){
+let h=document.createElement("div");
+h.className="heart";
+h.innerHTML="💖";
+h.style.left=Math.random()*100+"%";
+h.style.animationDuration=(4+Math.random()*4)+"s";
+effects.appendChild(h);
+
+setTimeout(()=>{h.remove()},8000);
+}
+
+setInterval(createHeart,500);
+
+/* falling roses */
+function createPetal(){
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML="🌹";
+p.style.left=Math.random()*100+"%";
+p.style.animationDuration=(5+Math.random()*5)+"s";
+effects.appendChild(p);
+
+setTimeout(()=>{p.remove()},9000);
+}
+
+setInterval(createPetal,800);
+
+/* stars */
+for(let i=0;i<25;i++){
+let s=document.createElement("div");
+s.className="star";
+s.innerHTML="✨";
+s.style.left=Math.random()*100+"%";
+s.style.top=Math.random()*100+"%";
+effects.appendChild(s);
+}
+
+</script>
+
+</body>
+</html>
